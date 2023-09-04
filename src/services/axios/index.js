@@ -7,7 +7,25 @@ export const getAllPosts = async () => {
         return { success: true, message: response.data };
     } catch (error) {
         // Hata durumunda hata mesajını döndür
-        return { success: false, message: error.response.data.message };
+        return { success: false, message: error };
+    }
+};
+export const postComments = async (id) => {
+    try {
+        const response = await axios.get(`${baseURL}/posts/${id}/comments`);
+        return { success: true, message: response.data };
+    } catch (error) {
+        // Hata durumunda hata mesajını döndür
+        return { success: false, message: error };
+    }
+};
+export const getPostById = async (id) => {
+    try {
+        const response = await axios.get(`${baseURL}/posts/${id}`);
+        return { success: true, message: response.data };
+    } catch (error) {
+        // Hata durumunda hata mesajını döndür
+        return { success: false, message: error };
     }
 };
 export const createPost = async (title, body, userId) => {
@@ -20,7 +38,7 @@ export const createPost = async (title, body, userId) => {
         return { success: true, message: response.data };
     } catch (error) {
         // Hata durumunda hata mesajını döndür
-        return { success: false, message: error.response.data.message };
+        return { success: false, message: error };
     }
 };
 export const updatePost = async (title, body, userId, postId) => {
@@ -34,15 +52,15 @@ export const updatePost = async (title, body, userId, postId) => {
         return { success: true, message: response.data };
     } catch (error) {
         // Hata durumunda hata mesajını döndür
-        return { success: false, message: error.response.data.message };
+        return { success: false, message: error };
     }
 };
 export const deletePost = async (postId) => {
     try {
-        const response = await axios.delete(`${baseURL}/posts/${postId}`); 
+        const response = await axios.delete(`${baseURL}/posts/${postId}`);
         return { success: true, message: response.data };
     } catch (error) {
         // Hata durumunda hata mesajını döndür
-        return { success: false, message: error.response.data.message };
+        return { success: false, message: error };
     }
 };

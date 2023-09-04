@@ -26,7 +26,6 @@ export default function CreatePostModal({  open,  setOpen }) {
     const onCreatePostHandler = () => {
 
         createPost(postValues.title, postValues.body, 1).then((result) => {
-            console.log("resultresultresult:  ", result);
             Swal.fire({
                 title: 'Great!',
                 text: ` Your post has been successfully shared. id: ${result.message.id}`,
