@@ -6,10 +6,26 @@ import Logo from './Logo'
 import { useSelector } from 'react-redux'
 
 const navigation = [
-    { name: 'Posts', href: '#', icon: false },
-    { name: 'Features', href: '#', icon: <BellIcon className="w-6 h-6 text-mfa-dark-gray" aria-hidden="true" /> },
-    { name: 'Marketplace', href: '#', icon: <Squares2X2Icon className="w-6 h-6 text-mfa-dark-gray" aria-hidden="true" /> },
+    { name: 'Posts', href: '/', icon: false },
+    { name: 'Features', href: '/', icon: <BellIcon className="w-6 h-6 text-mfa-dark-gray" aria-hidden="true" /> },
+    { name: 'Marketplace', href: '/', icon: <Squares2X2Icon className="w-6 h-6 text-mfa-dark-gray" aria-hidden="true" /> },
 ]
+
+const HeaderPosts = ({ item, posts }) => {
+    return (
+        <div className='flex gap-x-2'>
+            <a
+                href={item.href}
+                className="flex px-3 py-2 -mx-3 text-base font-semibold leading-7 text-gray-900 rounded-lg gap-x-2 hover:bg-gray-50"
+            >
+                {item.name}
+                <span className="inline-flex items-center p-1 text-xs font-medium text-green-700 rounded-md bg-green-50 ring-1 ring-inset ring-green-600/20">
+                    {posts.length}
+                </span>
+            </a>
+        </div>
+    )
+}
 
 export default function Header() {
     const posts = useSelector(({ post }) => post.posts);
@@ -18,7 +34,7 @@ export default function Header() {
     return (
         <header className="bg-white">
             <nav className="flex items-center justify-between p-4 mx-auto" aria-label="Global">
-                <a href="#" className="-m-1.5 p-1.5 flex items-center gap-x-4 text-2xl font-bold">
+                <a href="/" className="-m-1.5 p-1.5 flex items-center gap-x-4 text-2xl font-bold">
                     <Logo />
                     <span>Arbit Blog</span>
                 </a>
@@ -41,15 +57,10 @@ export default function Header() {
                                         {item.icon}
                                     </>
                                 ) : (
-                                    <a
-                                        href={item.href}
-                                        className="block px-3 py-2 -mx-3 text-base font-semibold leading-7 text-gray-900 rounded-lg hover:bg-gray-50"
-                                    >
-                                        {item.name}
-                                        <span className="inline-flex items-center px-2 py-1 text-xs font-medium text-green-700 rounded-md bg-green-50 ring-1 ring-inset ring-green-600/20">
-                                            {posts.length}
-                                        </span>
-                                    </a>
+                                    <HeaderPosts
+                                        item={item}
+                                        posts={posts}
+                                    />
                                 )
                             }
                         </div>
@@ -89,12 +100,10 @@ export default function Header() {
                                                     {item.icon}
                                                 </>
                                             ) : (
-                                                <a
-                                                    href={item.href}
-                                                    className="block px-3 py-2 -mx-3 text-base font-semibold leading-7 text-gray-900 rounded-lg hover:bg-gray-50"
-                                                >
-                                                    {item.name}
-                                                </a>
+                                                <HeaderPosts
+                                                    item={item}
+                                                    posts={posts}
+                                                />
                                             )
                                         }
                                     </div>

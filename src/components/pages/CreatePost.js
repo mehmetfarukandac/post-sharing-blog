@@ -1,7 +1,7 @@
 import { ArrowLongLeftIcon, PlusIcon, PencilIcon, TrashIcon } from "@heroicons/react/24/solid";
 import { useEffect, useState } from "react";
-import {  useSelector } from "react-redux";
-import {  useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import Button from "../common/button";
 import Layout from "./layout";
 import Swal from 'sweetalert2'
@@ -42,17 +42,16 @@ const CreatePost = () => {
             confirmButtonText: "I'm sure :)"
         }).then(function (result) {
             if (result.isConfirmed) {
-                deletePost(parseInt(id)).then((result) => {
+                deletePost(parseInt(id)).then(() => {
                     Swal.fire({
                         title: 'Great!',
-                        text: ` Your post has been successfully deleted. id: ${result.message.id}`,
+                        text: ` Your post has been successfully deleted. id: ${id}`,
                         icon: 'success',
                         confirmButtonText: 'Okay, thanksss',
                         confirmButtonColor: "#0971CE"
                     })
                 })
                     .catch((error) => {
-                        // Hata durumunu işle
                         console.error(error);
                     });
             }
@@ -85,7 +84,7 @@ const CreatePost = () => {
 
     return (
         <Layout>
-            <div className="w-3/5 px-8">
+            <div className="w-3/5 h-screen px-8">
                 <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center space-x-2">
                         <a href="/" className="p-2 rounded-full bg-mfa-gray hover:bg-mfa-dark-gray">
@@ -105,8 +104,6 @@ const CreatePost = () => {
                 </div>
             </div>
             {openCreateModal && <CreatePostModal
-                posts={posts}
-                id={id}
                 open={openCreateModal} setOpen={setOpenCreateModal} />}
         </Layout>
     );

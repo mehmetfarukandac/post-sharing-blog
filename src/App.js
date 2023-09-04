@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom"
 import CreatePost from "./components/pages/CreatePost"
 import Home from "./components/pages/Home"
 import { getAllPosts } from "./services/axios"
-import { postActions } from "./store/post-slice"
+import { postActions } from "./store/redux/post-slice"
 
 function App() {
   const dispatch = useDispatch();

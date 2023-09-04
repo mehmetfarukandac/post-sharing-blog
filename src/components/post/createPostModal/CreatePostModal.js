@@ -7,7 +7,7 @@ import { TrashIcon } from "@heroicons/react/24/solid";
 import { createPost } from '../../../services/axios'
 import Logo from '../../header/Logo'
 
-export default function CreatePostModal({ posts, open, id, setOpen }) {
+export default function CreatePostModal({  open,  setOpen }) {
 
     const cancelButtonRef = useRef(null)
     const [postValues, setPostValues] = useState({
