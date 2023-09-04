@@ -2,7 +2,7 @@ import Logo from "../header/Logo";
 
 const PostCommentItem = ({ comment }) => {
     return (
-        <div className="relative flex justify-center mt-2">
+        <div className="relative flex justify-center mb-2">
             <div className="relative grid grid-cols-1 gap-4 p-4 bg-white border rounded-lg shadow-lg">
                 <div className="relative flex gap-4">
                     <Logo />
