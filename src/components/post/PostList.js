@@ -6,7 +6,7 @@ const PostList = () => {
     const posts = useSelector(({ post }) => post.posts);
 
     return (
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid justify-center gap-4 xl:grid-cols-3 sm:grid-cols-1 md:grid-cols-2">
             {
                 posts.length > 0 ? (
                     <>

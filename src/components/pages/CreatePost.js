@@ -1,5 +1,5 @@
 import { ArrowLongLeftIcon, PlusIcon, PencilIcon, TrashIcon } from "@heroicons/react/24/solid";
-import { useEffect, useState } from "react"; 
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Button from "../common/button";
 import Layout from "./layout";
@@ -95,8 +95,8 @@ const CreatePost = () => {
 
     return (
         <Layout>
-            <div className="flex">
-                <div className="w-3/5 h-screen px-8 ">
+            <div className="grid xl:grid-cols-2 sm:grid-cols-1 md:grid-cols-1">
+                <div className="col-span-1.5 px-4">
                     <div className="flex items-center justify-between mb-4">
                         <div className="flex items-center space-x-2">
                             <a href="/" className="p-2 rounded-full bg-mfa-gray hover:bg-mfa-dark-gray">
@@ -115,7 +115,7 @@ const CreatePost = () => {
                         <Button onClickHandler={onUpdateHandler} className="bg-mfa-blue hover:bg-mfa-blue/90 focus:ring-4 focus:outline-none focus:ring-mfa-blue/50 " icon={<PencilIcon className="w-4 h-4 text-white" />} text="Update" />
                     </div>
                 </div>
-                <div className="w-2/5 h-full px-2 ">
+                <div className="col-span-0.5 h-full px-4">
                     <PostCommentList postComments={commentValues} />
                 </div>
             </div>
