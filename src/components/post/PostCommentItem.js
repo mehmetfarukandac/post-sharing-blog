@@ -9,7 +9,6 @@ const PostCommentItem = ({ comment }) => {
                     <div className="flex flex-col w-full">
                         <div className="flex flex-row justify-between">
                             <p className="relative overflow-hidden text-xl truncate whitespace-nowrap">{comment?.email}</p>
-                            <a className="text-xl text-gray-500" href="#"><i className="fa-solid fa-trash"></i></a>
                         </div>
                         <p className="text-sm text-gray-400">20 April 2022, at 14:88 PM</p>
                     </div>
